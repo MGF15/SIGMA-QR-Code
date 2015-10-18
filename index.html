@@ -1,0 +1,66 @@
+<html>
+<!--SIGMA QR-Code by dogo h@ck (MGF15)-->
+<title>&#931; QR-Code Generator</title>
+<head>
+<link href="bootstrap.css" rel="stylesheet">
+<style>
+b{
+	font-size:120px;
+	color:Green;
+	font-family: Andalus;
+}
+p{
+	font-size:30px;
+	
+}
+.input {
+	text-align:center;
+	padding-top:34px;
+	padding-right: 50px;
+}
+#w{
+	border:2px solid #8B9BAA;
+	width:500px;
+	height:27;
+	font-size:18px;
+	font-family:sans-serif;
+	text-align:center;
+}
+
+#w:hover{
+	border:2px solid green;
+
+}
+
+body{
+	background-color:#4DAFED;
+
+}
+span{
+	font-family:sans-serif;
+	font-size:22px;
+
+}
+.submit {
+	text-align:center;
+	padding-top:20px;
+	padding-left:8px;
+	
+}
+
+</style>
+</head>
+<body>
+<center>
+<b>&#931;</b><p>QR-Code Generator</p></center>
+<form action="/" method="Post">
+<div class="input">
+<span>URL : </span><input id='w' type="text" name="url" placeholder="http://">
+</div>
+<div class="submit">
+<br>
+<button class="btn btn-primary btn-lg btn-create" value="Create QR code" type="submit" id="btn-create">Create QR code</button>
+</div>
+</form>
+</body>
+</html>
