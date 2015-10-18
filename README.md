@@ -10,7 +10,7 @@ PyQRCode 1.1^
 
 https://pypi.python.org/pypi/PyQRCode
 
-#Using SIGMA-QR-Code
+#Using SIGMA QR-Code
 Run SIGMA QR-Code.py 
 
 Open http://localhost:8080/ in Your Browser
