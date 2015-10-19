@@ -18,8 +18,8 @@ body{
 
 }
 .Qr img{
-	padding-left: px;
-	padding-top: 20px
+	padding-left: 2px;
+	padding-top: 20px;
 }
 p{
 	font-size: 27px;
@@ -49,7 +49,7 @@ a:hover{
 <p>Your QR Code </p>
 
 <center>
-<b>URL = </b><a href ="site" ><span>site</span></a></span>
+<b>URL = </b><a href ="site" ><span>site</span></a>
 <div class="Qr">
 <img src="url.svg">
 </div>
