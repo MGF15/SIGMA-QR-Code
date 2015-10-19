@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #SIGMA QR-Code (URL)
-#Coded by dogo h@ck (MGF15)
+#Coded by MGF15
 
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 import os 
