@@ -3,11 +3,11 @@
 #Coded by dogo h@ck (MGF15)
 
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
-from os import curdir, sep 
+import os 
 import pyqrcode
 
 PORT_NUMBER = 8080
-finl = '''
+final = '''
 <html>
 <title>&#931; QR Code</title>
 <head>
@@ -49,7 +49,7 @@ a:hover{
 <p>Your QR Code </p>
 
 <center>
-<b>URL = </b><a href ="http://google.com" ><span>http://google.com</span></a></span>
+<b>URL = </b><a href ="site" ><span>site</span></a></span>
 <div class="Qr">
 <img src="url.svg">
 </div>
@@ -66,18 +66,19 @@ class myHandler(BaseHTTPRequestHandler):
 		try:
 			sendReply = False
 			if self.path.endswith(".html"):
-				mimetype='text/html'
+				type='text/html'
 				sendReply = True
 			if self.path.endswith(".css"):
-				mimetype='text/css'
+				type='text/css'
 				sendReply = True
 			if self.path.endswith(".svg"):
-				mimetype='image/svg+xml'
+				type='image/svg+xml'
 				sendReply = True
 			if sendReply == True:
-				f = open(curdir + sep + self.path) 
+				Dir = os.path.dirname(os.path.realpath(__file__)) + os.path.sep
+				f = open(Dir + self.path) 
 				self.send_response(200)
-				self.send_header('Content-type',mimetype)
+				self.send_header('Content-type',type)
 				self.end_headers()
 				self.wfile.write(f.read())
 				f.close()
@@ -95,7 +96,7 @@ class myHandler(BaseHTTPRequestHandler):
 		self.send_response(200)
 		self.send_header('Content-type','text/html')
 		self.end_headers()
-		self.wfile.write(finl.replace('site',w))
+		self.wfile.write(final.replace('site',w)))
 		
 server = HTTPServer(('', PORT_NUMBER), myHandler)
 print '[+] Open LocalHost in Your Browser on Port' , PORT_NUMBER
