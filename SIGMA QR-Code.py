@@ -96,7 +96,7 @@ class myHandler(BaseHTTPRequestHandler):
 		self.send_response(200)
 		self.send_header('Content-type','text/html')
 		self.end_headers()
-		self.wfile.write(final.replace('site',w)))
+		self.wfile.write(final.replace('site',w))
 		
 server = HTTPServer(('', PORT_NUMBER), myHandler)
 print '[+] Open LocalHost in Your Browser on Port' , PORT_NUMBER
