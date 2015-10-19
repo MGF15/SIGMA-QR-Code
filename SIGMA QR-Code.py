@@ -20,6 +20,7 @@ body{
 .Qr img{
 	padding-left: 2px;
 	padding-top: 20px;
+	background-color:WHITE;
 }
 p{
 	font-size: 27px;
