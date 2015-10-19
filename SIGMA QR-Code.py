@@ -51,6 +51,7 @@ a:hover{
 <center>
 <b>URL = </b><a href ="site" ><span>site</span></a>
 <div class="Qr">
+<br>
 <img src="url.svg">
 </div>
 </center>
