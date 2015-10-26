@@ -3,64 +3,35 @@
 <title>&#931; QR-Code Generator</title>
 <head>
 <link href="bootstrap.css" rel="stylesheet">
-<style>
-b{
-	font-size:120px;
-	color:Green;
-	font-family: Andalus;
-}
-p{
-	font-size:30px;
-	
-}
-.input {
-	text-align:center;
-	padding-top:34px;
-	padding-right: 50px;
-}
-#w{
-	border:2px solid #8B9BAA;
-	width:500px;
-	height:29px;
-	font-size:18px;
-	font-family:sans-serif;
-	text-align:center;
-}
-
-#w:hover{
-	border:2px solid green;
-
-}
-
-body{
-	background-color:#4DAFED;
-
-}
-span{
-	font-family:sans-serif;
-	font-size:22px;
-
-}
-.submit {
-	text-align:center;
-	padding-top:20px;
-	padding-left:8px;
-	
-}
-
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="main.css" rel="stylesheet">
 </head>
 <body>
 <center>
 <b>&#931;</b><p>QR-Code Generator</p></center>
 <form action="/" method="Post">
 <div class="input">
-<span>URL : </span><input id='w' type="text" name="url" placeholder="http://">
+<i name="link" onclick="url()" class="material-icons md-36">link</i>
+<i name="text_format" onclick="text()" class="material-icons md-36">text_format</i>
+<br >
+<span id="ur">URL : </span><input id='w' type="text" name="url" placeholder="http://">
 </div>
 <div class="submit">
 <br>
 <button class="btn btn-primary btn-lg btn-create" value="Create QR code" type="submit" id="btn-create">Create QR code</button>
 </div>
 </form>
+<script>
+function url(){
+	document.getElementById('ur').innerHTML = 'URL : ';
+	document.getElementById('w').placeholder = 'http://';
+};
+function text(){
+	document.getElementById('ur').innerHTML = 'Text : ';
+	document.getElementById('w').placeholder = 'Your Text';
+};
+
+</script>
 </body>
 </html>
