@@ -19,3 +19,13 @@ Open http://localhost:8080/ in Your Browser
 
 #Version 
 v0.2
+
+#To Do
+
+* QR-Code Size 
+
+* Bitcoin Adress
+
+* SMS
+
+* Call
