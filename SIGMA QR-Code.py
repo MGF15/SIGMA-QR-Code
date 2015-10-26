@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#SIGMA QR-Code (URL)
+#SIGMA QR-Code (URL + Text)
 #Coded by MGF15
 
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
@@ -7,58 +7,8 @@ import os
 import pyqrcode
 
 PORT_NUMBER = 8080
-final = '''
-<html>
-<title>&#931; QR Code</title>
-<head>
-<style>
-
-body{
-	background-color:#4DAFED;
-
-}
-.Qr img{
-	padding-left: 2px;
-	padding-top: 20px;
-	background-color:WHITE;
-}
-p{
-	font-size: 27px;
-	text-align: center;
-
-}
-span{
-	
-	font-size: 29px;
-	color: #ACD286;
-}
-b {
-	font-size:29px;
-	color :#ACD286;
-}
-a{
-	text-decoration:none
-}
-a:hover{
-	color :#ACD286; 
-	
-}
-
-</style>
-</head>
-<body>
-<p>Your QR Code </p>
-
-<center>
-<b>URL = </b><a href ="site" ><span>site</span></a>
-<div class="Qr">
-<br>
-<img src="url.svg">
-</div>
-</center>
-</body>
-</html>
-'''
+Dir = os.path.dirname(os.path.realpath(__file__)) + os.path.sep
+final = open(Dir+'QR.html','r').read()
 
 class myHandler(BaseHTTPRequestHandler):
 	
@@ -77,7 +27,6 @@ class myHandler(BaseHTTPRequestHandler):
 				type='image/svg+xml'
 				sendReply = True
 			if sendReply == True:
-				Dir = os.path.dirname(os.path.realpath(__file__)) + os.path.sep
 				f = open(Dir + self.path) 
 				self.send_response(200)
 				self.send_header('Content-type',type)
@@ -93,12 +42,12 @@ class myHandler(BaseHTTPRequestHandler):
 		file_content = self.rfile.read(content_length)
 		g = file_content.split('url=')
 		w = g[1].replace('%3A',':').replace('%2F','/')
-		url = pyqrcode.create(w)
-		url.svg('url.svg', scale=9)
+		qr = pyqrcode.create(w)
+		qr.svg('qr.svg', scale=9)
 		self.send_response(200)
 		self.send_header('Content-type','text/html')
 		self.end_headers()
-		self.wfile.write(final.replace('site',w))
+		self.wfile.write(final)
 		
 server = HTTPServer(('', PORT_NUMBER), myHandler)
 print '[+] Open LocalHost in Your Browser on Port' , PORT_NUMBER
