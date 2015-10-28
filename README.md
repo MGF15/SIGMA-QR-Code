@@ -24,7 +24,7 @@ v0.2
 
 * QR-Code Size 
 
-* Bitcoin Adress
+* Bitcoin Address
 
 * SMS
 
