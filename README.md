@@ -26,6 +26,6 @@ v0.2
 
 * Bitcoin Address
 
-* SMS
+* Google Play (Link)
 
 * Call
