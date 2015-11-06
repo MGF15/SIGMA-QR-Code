@@ -29,3 +29,5 @@ v0.2
 * Google Play (Link)
 
 * Call
+
+* SMS
