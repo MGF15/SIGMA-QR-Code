@@ -1,37 +1,66 @@
 <html>
-<!--SIGMA QR-Code by dogo h@ck (MGF15)-->
+<!--SIGMA QR-Code by MGF15 -->
 <title>&#931; QR-Code Generator</title>
 <head>
-<link href="bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="main.css" rel="stylesheet">
+<link href="bootstrap.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="main.css" rel="stylesheet"/>
 </head>
-<body>
+<body style="">
 <center>
 <b>&#931;</b><p>QR-Code Generator</p></center>
+<div id="Sigma">
 <form action="/" method="Post">
 <div class="input">
-<i name="link" onclick="url()" class="material-icons md-36">link</i>
-<i name="text_format" onclick="text()" class="material-icons md-36">text_format</i>
+<i id="link" name="url" onclick="BgColor('http://','URL : ','Link')" class="material-icons md-36" style="">link</i>
+<i id="text" name="text_format" onclick="BgColor('Your Text','Text : ','Text')" class="material-icons md-36" style="">text_format</i>
+<i id="call" name="call" onclick="BgColor('Ex +234-544-355','CALL : ','Tel')" class="material-icons md-36" style="">call</i>
+<i id="play" name="play" onclick="BgColor('https://play.google.com/store/','AppLink : ','Play')" class="material-icons md-36" style="">get_app</i>
+<i id="sms" name="sms" onclick="BgColor('To +234-544-355','SMS : ','Sms'),sms()" class="material-icons md-36" style="">textsms</i>
+<i id="BTC" name = "btc" onclick="BgColor('BTC Address','BTC : ','BTC')" class="fa fa-btc fa-2x" style=""></i>
 <br >
-<span id="ur">URL : </span><input id='w' type="text" name="url" placeholder="http://">
+<span id="ur">URL : </span><input id='w' type="text" name="Link" placeholder="http://">
+<div id="sm">
+
+</div>
 </div>
 <div class="submit">
 <br>
-<button class="btn btn-primary btn-lg btn-create" value="Create QR code" type="submit" id="btn-create">Create QR code</button>
+<button class="btn waves-effect waves-light" value="Create QR code" type="submit" id="btn-create">
+Create QR code
+</button>
 </div>
 </form>
+</div>
 <script>
-function url(){
-	document.getElementById('ur').innerHTML = 'URL : ';
-	document.getElementById('w').placeholder = 'http://';
+function BgColor(placeholder,text,type){
+	document.getElementById('ur').innerHTML = text;
+	document.getElementById('w').placeholder = placeholder;
+	document.getElementById('w').name = type;
+	var rem = document.getElementById("ms");
+	if (text != "SMS : "){
+			rem.remove();
+	};	
 };
-function text(){
-	document.getElementById('ur').innerHTML = 'Text : ';
-	document.getElementById('w').placeholder = 'Your Text';
+function sms(){
+	var x = document.createElement("input");
+	x.setAttribute("type", "text");
+	x.setAttribute("placeholder", "Your Message!");
+	x.setAttribute("name","msg");
+	x.setAttribute("id","ms");
+	x.style.width = "550px";
+	x.style.height = "47px";
+	x.style.fontsize = "25px;";
+    document.getElementById("sm").appendChild(x);
+	document.getElementById("sm").style.color = "White";
 };
 
 </script>
+<div id="launcher">
+<span class="copy">Copy Right <i class="fa fa-github fa-2x"></i> <a href="http://github.com/MGF15">MGF15</a></span>
+<b class="BTC"><i class="fa fa-btc fa-lg"></i> 17o5svNWyrowtNGMMbvYB1k1qYp8BTNfXs</b>  
+</div>
 </body>
 </html>
