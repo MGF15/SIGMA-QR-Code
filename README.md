@@ -1,7 +1,7 @@
 #SIGMA QR-Code Generator
 ![alt tag](https://github-cloud.s3.amazonaws.com/assets/6103602/10565335/f466e800-7582-11e5-8af8-87aa4a37be93.png)
 
-Simple QR Code Generator 
+Simple Web Interface QR Code Generator 
 
 * URL 
 
