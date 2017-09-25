@@ -1,66 +1,65 @@
+<!DOCTYPE html>
 <html>
-<!--SIGMA QR-Code by MGF15 -->
-<title>&#931; QR-Code Generator</title>
 <head>
-<link href="bootstrap.css" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="main.css" rel="stylesheet"/>
+<title>&#931; QR-Code Generator</title>
+<link rel="stylesheet" href="materialize.min.css"/>
+<link rel="stylesheet" href="font-awesome.min.css"/>
+<link rel="stylesheet" href="main.css" />
+<script type="text/javascript" src="qrcode.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
 </head>
 <body style="">
 <center>
-<b>&#931;</b><p>QR-Code Generator</p></center>
+<p>QR-Code Generator</p></center>
 <div id="Sigma">
-<form action="/" method="Post">
-<div class="input">
-<i id="link" name="url" onclick="BgColor('http://','URL : ','Link')" class="material-icons md-36" style="">link</i>
-<i id="text" name="text_format" onclick="BgColor('Your Text','Text : ','Text')" class="material-icons md-36" style="">text_format</i>
-<i id="call" name="call" onclick="BgColor('Ex +234-544-355','CALL : ','Tel')" class="material-icons md-36" style="">call</i>
-<i id="play" name="play" onclick="BgColor('https://play.google.com/store/','AppLink : ','Play')" class="material-icons md-36" style="">get_app</i>
-<i id="sms" name="sms" onclick="BgColor('To +234-544-355','SMS : ','Sms'),sms()" class="material-icons md-36" style="">textsms</i>
-<i id="BTC" name = "btc" onclick="BgColor('BTC Address','BTC : ','BTC')" class="fa fa-btc fa-2x" style=""></i>
-<br >
-<span id="ur">URL : </span><input id='w' type="text" name="Link" placeholder="http://">
-<div id="sm">
 
+<div class="input">
+<i class="fa fa-link fa-2x" aria-hidden="true" onclick="show('URL')" ></i>
+<i class="fa fa-font fa-2x" aria-hidden="true" onclick="show('Text')" ></i>
+<i class="fa fa-phone fa-2x" aria-hidden="true" onclick="show('Call')"></i>
+<i class="fa fa-wifi fa-2x" aria-hidden="true" onclick="show('SSID');"></i>
+<i class="fa fa-commenting-o fa-2x" aria-hidden="true" onclick="show('SMSto')"></i>
+<i class="fa fa-btc fa-2x" aria-hidden="true" onclick="show('BTC')"></i>
+<br>
+<span id="ur">URL</span> : <input id="w" required="" type="text" name="Link" placeholder="">
+<p>
+<div id="select" style="display:none;">
+Password : <input id="pwd" type="text" >
+    <select id="sec">
+      <option >WPA/WPA2</option>
+      <option >WEP</option>
+      <option >Open</option>
+    </select>
+<input type="checkbox" id="test5" />
+      <label for="test5">Hidden</label>
+</div>
+<div id="sm" style="display:none;">
+message : <input id="msg" type="text" >
 </div>
 </div>
 <div class="submit">
 <br>
-<button class="btn waves-effect waves-light" value="Create QR code" type="submit" id="btn-create">
-Create QR code
+<button class="btn waves-effect waves-light" value="Create" type="submit" id="btn-create" onclick="qr();">
+Create
 </button>
 </div>
-</form>
+</div>
+<div id="qrcode" style="text-align:center;">
+<div id="qr">
+
+</div>
+<br>
+<p>
+<button id="ty" class="btn waves-effect waves-light" style="display:none;" onclick="ty();">Try Again</button>
 </div>
 <script>
-function BgColor(placeholder,text,type){
-	document.getElementById('ur').innerHTML = text;
-	document.getElementById('w').placeholder = placeholder;
-	document.getElementById('w').name = type;
-	var rem = document.getElementById("ms");
-	if (text != "SMS : "){
-			rem.remove();
-	};	
-};
-function sms(){
-	var x = document.createElement("input");
-	x.setAttribute("type", "text");
-	x.setAttribute("placeholder", "Your Message!");
-	x.setAttribute("name","msg");
-	x.setAttribute("id","ms");
-	x.style.width = "550px";
-	x.style.height = "47px";
-	x.style.fontsize = "25px;";
-    document.getElementById("sm").appendChild(x);
-	document.getElementById("sm").style.color = "White";
-};
-
+function ty(){document.getElementById("ty").style.display="none",document.getElementById("Sigma").style.display="",document.getElementById("qr").style.display="none"}function show(a){document.getElementById("ur").innerHTML=a;var b=document.getElementById("select"),d=document.getElementById("sm");"SMSto"===a?(b.style.display="none",d.style.display="-webkit-inline-box"):"SSID"===a?(d.style.display="none",b.style.display="-webkit-inline-box"):(b.style.display="none",d.style.display="none")}var qrcode=new QRCode(document.getElementById("qr"),{width:210,height:210});function qr(){document.getElementById("ty").style.display="",document.getElementById("qr").style.display="";var a=document.getElementById("ur").innerHTML,b=document.getElementById("w").value;if("SSID"===a){var d=document.getElementById("pwd").value,e=document.getElementById("sec").value,g=document.getElementById("test5").checked;b="WIFI:S:"+b+";T:"+e+";P:"+d+";H:"+g+";;",document.getElementById("Sigma").style.display="none"}else if("SMSto"===a){var h=document.getElementById("msg").value;b="SMSTO:"+b+":"+h,document.getElementById("Sigma").style.display="none"}else b="Call"===a?"TEL:"+b:b,document.getElementById("Sigma").style.display="none";qrcode.makeCode(b)}
 </script>
-<div id="launcher">
-<span class="copy">Copy Right <i class="fa fa-github fa-2x"></i> <a href="http://github.com/MGF15">MGF15</a></span>
-<b class="BTC"><i class="fa fa-btc fa-lg"></i> 17o5svNWyrowtNGMMbvYB1k1qYp8BTNfXs</b>  
-</div>
+<script>
+$(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+<script type="text/javascript" src="materialize.min.js"></script>
 </body>
 </html>
