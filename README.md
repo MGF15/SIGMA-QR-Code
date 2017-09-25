@@ -1,33 +1,6 @@
 #SIGMA QR-Code Generator
-![alt tag](https://github-cloud.s3.amazonaws.com/assets/6103602/10565335/f466e800-7582-11e5-8af8-87aa4a37be93.png)
 
-Simple Web Interface QR Code Generator 
+Simple QR Code Generator 
 
-* URL 
-
-* Text
-* Bitcoin Address
-
-* Google Play (Link)
-
-* Call
-
-* SMS
-
-
-#Installing
-
-Python 2.7
-
-PyQRCode 1.1^
-
-https://pypi.python.org/pypi/PyQRCode
-
-#Using SIGMA QR-Code
-Run SIGMA QR-Code.py 
-
-Open http://localhost:8080/ in Your Browser
-
-
-#Version 
-v0.3
+# Demo 
+> [here](http://mgf15.github.io/SIGMA-QR-Code/index.html)
